@@ -9,6 +9,9 @@ Later functions to email users when the OSRS database prices were updated were a
 as methods for gathering data from the rs wiki, which offers data gathered with
 the another 3rd party client called Runelite.
 
+In order to enrich the limited data from the official API I have resorted to scraping the official webpage which
+contains more accurate data in the source. This function is automatically started when an update to the OSRS API is detected.
+
 ## Installation
 **Instructions will follow**
 
