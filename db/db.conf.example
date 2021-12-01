@@ -1,0 +1,17 @@
+[test]
+host=localhost
+user=
+password=
+db_name=
+
+[prod]
+host=localhost
+user=
+password=
+db_name=
+
+[ssmtp]
+to=
+from=
+mailhub=smtp.gmail.com:587
+password=
