@@ -13,7 +13,19 @@ In order to enrich the limited data from the official API I have resorted to scr
 contains more accurate data in the source. This function is automatically started when an update to the OSRS API is detected.
 
 ## Installation
-**Instructions will follow**
+Using sql script in the db folder to recreate my database structure and use crontab after to schedule the different parts of the script, using the different possible arguments. Personally I:
+1) Run the script with argument --osrs once a minute.
+2) Run the script with argument --osb once every 10 minutes (this API is (nowadas) fairly inactive and only supplies fresh data twice an hour, normally)
+3) Run the script with argument --wiki every 5 minutes.
+4) Run the script with argument --enrichment_check every hour. This function scrapes the itemdb webpage to get more accurate data and add this to the data that came from the official OSRS API. 
+
+The following other arguments are possible:
+- --initialize: launches the initial setup: rebuilds the limits table and queries the APIs to start building the dataset.
+- --rebuild: rebuilds the limits table using the osrsbox API.
+- --enrich: forces the script to check if there are lines in the OSRS API table that require enrichment, and if those exist the script will enrich the lines.
+- --updated: launch the script in a way to pretend the OSRS API was updated.  
+
+**Note:** the table ge.items is not provided and will need to be build by hand (of with your own query). While I no longer use the data I gather with this system, I don't feel comfortable sharing the collection of items I earned in-game money with.
 
 ## Usage
 Schedule script with function call in crontab. I personally ran this script off a
